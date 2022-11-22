@@ -7,7 +7,7 @@ def tracks_from_saved_albums():
     # Get Album IDs and Artist IDs from Saved Albums
     album_ids = []
     album_artist_ids = []
-    saved_albums = spotify.current_user_saved_albums(limit=20, offset=0, market=None)
+    saved_albums = spotify.current_user_saved_albums(limit=50, offset=0, market=None)
     for idx, album in enumerate(saved_albums['items']):
         album_id = album['album']['id']
         album_ids.append(album_id)
@@ -32,11 +32,12 @@ def tracks_from_saved_albums():
     collection = collections.Counter(album_genres)
     sorted_album_genres = collection.most_common(20)
     os.system('clear')
-    print("Top 20 Genres from Saved Albums:")
+    print("Top 20 Genres from 50 most recent Saved Albums:")
     print("")
     i = 1
     for genre in sorted_album_genres:
-        print(i, "-", genre[0], "(", genre[1], "albums )")
+        #print(i, "-", genre[0], "(", genre[1], "albums )")
+        print(str(i) + '. ' + genre[0] + ' (' + str(genre[1]) + ' albums)')
         i += 1
     print("")
     print("Select Genre:")
@@ -66,15 +67,20 @@ def tracks_from_saved_albums():
             selected_track_names.append(track['name'])
     
     # Print selected Artists and Tracks
-    os.system('clear')
-    print('Tracks for selected Genre "' + selected_genre + '":')
-    print("")
-    i = 0
-    while i < len(selected_artists):
-        print(selected_artists[i], "-", selected_track_names[i])
-        i += 1
-    print("")
+    #os.system('clear')
+    #print('Tracks for selected Genre "' + selected_genre + '":')
+    #print("")
+    #i = 0
+    #while i < len(selected_artists):
+    #    print(selected_artists[i], "-", selected_track_names[i])
+    #    i += 1
+    #print("")
     
+    # Print total number of selected tracks
+    os.system('clear')
+    print(str(len(selected_track_names)) + ' tracks to add for selected genre "' + selected_genre + '":')
+    print("")
+
     return selected_genre, selected_track_ids, selected_track_names
 
 # Function to get Selected Genre and Track IDs from selected Playlist
@@ -92,11 +98,11 @@ def tracks_from_playlists():
         playlist_totals.append(playlist['tracks']['total'])
     
     os.system('clear')
-    print("Available Playlists")
+    print("Available Playlists:")
     print("")
     i = 0
     while i < len(playlist_ids):
-        print(i + 1, "-", playlist_names[i], "(", playlist_totals[i], "tracks )")
+        print(str(i + 1) + '. ' + playlist_names[i] + ' (' + str(playlist_totals[i]) + ' tracks)')
         i += 1
      
     print("")
@@ -142,7 +148,7 @@ def tracks_from_playlists():
     
     i = 1
     for genre in sorted_playlist_genres:
-        print(i, "-", genre[0], "(", genre[1], "tracks )")
+        print(str(i) + '. ' + genre[0] + ' (' + str(genre[1]) + ' tracks)')
         i += 1
     
     print("")
@@ -160,6 +166,11 @@ def tracks_from_playlists():
             new_playlist_ids.append(track_ids[i])
             new_playlist_names.append(tracks[i])
         i += 1
+
+    # Print total number of selected tracks
+    os.system('clear')
+    print(str(len(new_playlist_names)) + ' tracks to add for selected genre "' + selected_genre + '":')
+    print("")
 
     return selected_genre, new_playlist_ids, new_playlist_names
 
@@ -184,18 +195,18 @@ def create_playlist(selected_genre, selected_track_ids):
 def add_to_queue(selected_genre, selected_track_ids, selected_track_names):
 
     print("")
-    print("Adding '" + selected_genre + "' tracks to queue:")
+    print('Adding ' + str(len(selected_track_ids)) + ' "' + selected_genre + '" tracks to Queue')
     print("")
     
-    i = 1
-    for track_name in selected_track_names:
-        print(i, "-", track_name)
-        i += 1
+    #i = 1
+    #for track_name in selected_track_names:
+    #    print(i, "-", track_name)
+    #    i += 1
     
     for track_id in selected_track_ids:
         spotify.add_to_queue(track_id, device_id=None)
     
-    print("")
+    #print("")
 
 # Spotify authorisation scopes
 scope = "user-library-read user-follow-read user-modify-playback-state playlist-read-private playlist-modify-private"
@@ -209,6 +220,7 @@ os.system('clear')
 # Select from either Saved Albums or a Playlist
 print("1. Select from Saved Albums")
 print("2. Select from a Playlist")
+print("")
 print("Choose 1 or 2:")
 selection = "0"
 while selection != "1" and selection != "2":
@@ -219,13 +231,14 @@ elif selection == "2":
     selected_genre, selected_track_ids, selected_track_names = tracks_from_playlists()
 
 # Create a Playlist or add to Queue
-print("1. Create Playlist")
-print("2. Add to Queue")
+print("1. Add to Queue")
+print("2. Create Playlist")
+print("")
 print("Choose 1 or 2:")
 selection = "0"
 while selection != "1" and selection != "2":
     selection = input()
 if selection == "1":
-    create_playlist(selected_genre, selected_track_ids)
-elif selection == "2":
     add_to_queue(selected_genre, selected_track_ids, selected_track_names)
+elif selection == "2":
+    create_playlist(selected_genre, selected_track_ids)
