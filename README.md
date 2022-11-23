@@ -4,15 +4,15 @@ Select tracks from Saved Albums or Playlists on Spotify based on Artist Genre an
 
 ## Requirements
 
-* [Python 3](https://www.python.org/)
-* [Spotipy Python library](https://spotipy.readthedocs.io/)
-* A [Spotify](https://www.spotify.com/) account
+* A [Spotify](https://www.spotify.com/) account.
+* [Python 3](https://www.python.org/).
+* [Spotipy](https://spotipy.readthedocs.io/) Python library.
 
 ## Setup
 
 * Create Spotify app, get Client ID and Secret.
 * Copy _setup_template_ to _setup_ and add Client ID and Secret.
-* Import setup environment variables with `. setup`.
+* (Assuming you're using Bash or similar) import setup environment variables with `. setup`.
 
 ## Usage
 
