@@ -36,7 +36,6 @@ def tracks_from_saved_albums():
     print("")
     i = 1
     for genre in sorted_album_genres:
-        #print(i, "-", genre[0], "(", genre[1], "albums )")
         print(str(i) + '. ' + genre[0] + ' (' + str(genre[1]) + ' albums)')
         i += 1
     print("")
