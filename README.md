@@ -13,7 +13,8 @@ called Genrify which uses Spotify's API via the Spotipy Python library to achiev
 My Genrify app allows choosing a genre from recently added albums (Saved Albums) or from a Playlist, then it gives the choice of
 adding all the tracks associated with that genre (obtained from the genre of the artist for each track) to the Queue or to a new Playlist.
 
-The interface is currently rather rudimentary, but it works well to achieve the goal I was aiming for.
+The interface is currently rather rudimentary, especially given that it uses a basic CLI in a terminal,
+but it works well to achieve the goal I was aiming for.
 
 Please feel free to fork this and improve on it.
 
