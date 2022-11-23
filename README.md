@@ -14,6 +14,8 @@ adding all the tracks from that genre to your Queue or to a new Playlist.
 
 The interface is currently rather rudimentary, but it works well to achieve the goal I was aiming for.
 
+Please feel free to fork this repository and improve on it.
+
 ## Requirements
 
 * A [Spotify](https://www.spotify.com/) account.
@@ -26,7 +28,7 @@ The interface is currently rather rudimentary, but it works well to achieve the 
 1. Choose CREATE AN APP, give it a name and description, tick the "I understand" box, and choose CREATE.
 1. Make a note of the Client ID and Client Secret.
 1. Choose EDIT SETTINGS and add `http://127.0.0.1:9090` under Redirect URIs, then choose SAVE.
-1. Copy _setup_template_ to _setup_, then edit _setup_ and add the Client ID and Client Secret for your Spotify app.
+1. Copy _setup_template_ to _setup_, then edit _setup_ and add the Client ID and Client Secret for your newly created Spotify app.
 1. (Assuming you're using Bash or similar) import the setup environment variables with `. setup`.
 
 ## Usage
@@ -38,7 +40,9 @@ Assuming `python` is a symlink to `python3`:
 ## Desirable improvements
 
 * Add breakpoints to UI so that CTRL-C is not necessary to quit.
+* Fail with nicer error when no active device found when adding to Queue.
 * Code could be made more modular by splitting parts off into more repeatable functions.
 * Select from albums other than the 50 most recently added.
 * Be able to handle more than 50 playlists, and format playlist list better.
+* Be able to add more than 100 tracks.
 * Improve interface, ideally by migrating to a web-based UI.
