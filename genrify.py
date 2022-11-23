@@ -67,6 +67,8 @@ def tracks_from_saved_albums():
             selected_track_names.append(track['name'])
     
     # Print selected Artists and Tracks
+    # Currently disabled in favour of total selected tracks
+    # as it gives cleaner output
     #os.system('clear')
     #print('Tracks for selected Genre "' + selected_genre + '":')
     #print("")
@@ -86,7 +88,9 @@ def tracks_from_saved_albums():
 # Function to get Selected Genre and Track IDs from selected Playlist
 def tracks_from_playlists():
 
+    # Get list of Playlists
     playlists = spotify.current_user_playlists()
+    
     
     playlist_ids = []
     playlist_names = []
