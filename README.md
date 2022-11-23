@@ -6,15 +6,16 @@ Select tracks from Saved Albums or Playlists on Spotify based on Artist Genre an
 
 I got frustrated at having a Spotify library of added albums and created playlists, but not being able to query my library by genre.
 Basically, I wanted functionality like Smart Playlists in Apple's Music app (previously iTunes), where it's possible to say something like
-"select all songs from recently added albums where the genre is darkwave". Therefore, with this goal in mind, I created this Python 3 app 
+"select all songs from recently added albums where the genre is darkwave". Therefore, with the goal in mind of being able to do something
+similar with my Spotify library, I created this Python 3 app 
 called Genrify which uses Spotify's API via the Spotipy Python library to achieve this functionality.
 
-My Genrify app gives you the choice of selecting a genre from recently added albums or from a playlist, then it gives you the choice of
-adding all the tracks from that genre to your Queue or to a new Playlist.
+My Genrify app allows choosing a genre from recently added albums (Saved Albums) or from a Playlist, then it gives the choice of
+adding all the tracks associated with that genre (obtained from the genre of the artist for each track) to the Queue or to a new Playlist.
 
 The interface is currently rather rudimentary, but it works well to achieve the goal I was aiming for.
 
-Please feel free to fork this repository and improve on it.
+Please feel free to fork this and improve on it.
 
 ## Requirements
 
