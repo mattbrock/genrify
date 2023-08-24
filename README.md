@@ -18,6 +18,8 @@ but it works well to achieve the goal I was aiming for.
 
 Please feel free to fork this and improve on it.
 
+Accompanying [blog article](https://blog.cetre.co.uk/genrify-python-app-to-filter-spotify-library-based-on-genre/).
+
 ## Requirements
 
 * A [Spotify](https://www.spotify.com/) account.
