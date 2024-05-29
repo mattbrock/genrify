@@ -50,3 +50,7 @@ Assuming `python` is a symlink to `python3`:
 * Be able to handle more than 50 playlists, and format playlist list better.
 * Be able to add more than 100 tracks.
 * Improve interface, ideally by migrating to a web-based UI.
+
+## Like current track
+
+An extra script to add the currently playing track to one's list of liked tracks.
