@@ -24,7 +24,6 @@ Accompanying [blog article](https://blog.cetre.co.uk/genrify-python-app-to-filte
 
 * A [Spotify](https://www.spotify.com/) account.
 * [Python 3](https://www.python.org/).
-* [Spotipy](https://spotipy.readthedocs.io/) Python library.
 
 ## Setup
 
@@ -32,14 +31,16 @@ Accompanying [blog article](https://blog.cetre.co.uk/genrify-python-app-to-filte
 1. Choose CREATE AN APP, give it a name and description, tick the "I understand" box, and choose CREATE.
 1. Make a note of the Client ID and Client Secret.
 1. Choose EDIT SETTINGS and add `http://127.0.0.1:9090` under Redirect URIs, then choose SAVE.
-1. Copy _setup_template_ to _setup_, then edit _setup_ and add the Client ID and Client Secret for your newly created Spotify app.
+1. Copy _setup\_template_ to _setup_, then edit _setup_ and add the Client ID and Client Secret for your newly created Spotify app.
 1. (Assuming you're using Bash or similar) import the setup environment variables with `. setup`.
+2. Create virtualenv: `python3 -m venv .venv` if not previously done, then `source .venv/bin/activate`.
+3. Install requirements if needed: `python3 -m pip install -r requirements.txt`.
 
 ## Usage
 
-Assuming `python` is a symlink to `python3`:
+Run application:
 
-    python genrify.py
+    python3 genrify.py
 
 ## Desirable improvements
 
@@ -50,7 +51,3 @@ Assuming `python` is a symlink to `python3`:
 * Be able to handle more than 50 playlists, and format playlist list better.
 * Be able to add more than 100 tracks.
 * Improve interface, ideally by migrating to a web-based UI.
-
-## Like current track
-
-An extra script to add the currently playing track to one's list of liked tracks.
